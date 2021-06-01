@@ -7,12 +7,13 @@ import App from '../client/components/App'
 
 const app = express()
 const port = 3000
+const cdnHost = `http://localhost:5000`;
 
 app.get('/', (req, res) => {
-    const jsx = ReactDOMServer.renderToString(<App />)
+    const jsx = ReactDOMServer.renderToString(<App />) // [A]
 
-    const clientBundleScript = `<script src="http://localhost:5000/scripts/bundle.js"></script>`
-    const clientBundleStyle = `<link rel="stylesheet" href="http://localhost:5000/styles/bundle.css">`
+    const clientBundleStyle = `<link rel="stylesheet" href="${cdnHost}/styles/bundle.css">` // [B]
+    const clientBundleScript = `<script src="${cdnHost}/scripts/bundle.js"></script>` // [C]
 
     res.send(`
         <!DOCTYPE html>
@@ -21,11 +22,11 @@ app.get('/', (req, res) => {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>My SSR App</title>
-                ${clientBundleStyle}
+                ${clientBundleStyle} <!-- [B] -->
             </head>
             <body>
-                <div id='ssr-app'>${jsx}</div>
-                ${clientBundleScript}
+                <div id='ssr-app'>${jsx}</div> <!-- [A] -->
+                ${clientBundleScript} <!-- [C] -->
             </body>
         </html>
     `)

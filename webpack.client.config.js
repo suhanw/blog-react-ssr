@@ -13,8 +13,8 @@ const config = {
     entry: './client/index.js',
 
     output: {
-        path: path.join(__dirname, './build/client'),
-        filename: 'scripts/bundle.js',
+        path: path.join(__dirname, './build/client'), // [A]
+        filename: 'scripts/bundle.js', // [B]
         publicPath: `http://localhost:${clientPort}/`,
     },
 
@@ -46,7 +46,7 @@ const config = {
 
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'styles/bundle.css',
+            filename: 'styles/bundle.css', // [C]
         }),
     ],
 }
