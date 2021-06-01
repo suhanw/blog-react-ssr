@@ -1,54 +1,54 @@
 {
-	"name": "blog-react-ssr",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"clear": "rimraf build",
-		"clear:server": "rimraf build/server",
-		"build:client": "webpack --config webpack.client.config.js",
-		"build:server": "webpack --config webpack.server.config.js",
-		"start": "node build/server/bundle.js",
-		"dev:client": "webpack serve --config webpack.client.config.js",
-		"dev:server": "nodemon --watch client --watch server --exec 'run-s clear:server build:server start'",
-		"dev": "run-p dev:client dev:server",
-		"build": "run-s clear build:*"
-	},
-	"author": "Suhan Wijaya",
-	"license": "ISC",
-	"dependencies": {
-		"core-js": "^3.8.2",
-		"express": "^4.17.1",
-		"react": "^17.0.1",
-		"react-dom": "^17.0.1",
-		"regenerator-runtime": "^0.13.7",
-		"webpack": "^5.23.0",
-		"webpack-merge": "^5.7.3",
-		"webpack-node-externals": "^2.5.2"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.12.10",
-		"@babel/node": "^7.12.10",
-		"@babel/preset-env": "^7.12.11",
-		"@babel/preset-react": "^7.12.10",
-		"@loadable/babel-plugin": "^5.13.2",
-		"@loadable/webpack-plugin": "^5.14.2",
-		"babel-loader": "^8.2.2",
-		"babel-plugin-css-modules-transform": "^1.6.2",
-		"css-loader": "^5.0.1",
-		"less": "^4.0.0",
-		"less-loader": "^7.2.1",
-		"mini-css-extract-plugin": "^1.3.3",
-		"nodemon": "^2.0.7",
-		"npm-run-all": "^4.1.5",
-		"rimraf": "^3.0.2",
-		"webpack-cli": "^4.3.1",
-		"webpack-dev-server": "^3.11.1"
-	},
-	"prettier": {
-		"trailingComma": "es5",
-		"tabWidth": 4,
-		"semi": false,
-		"singleQuote": true
-	  }
+    "name": "blog-react-ssr",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "clear": "rimraf build",
+        "clear:server": "rimraf build/server",
+        "build:client": "webpack --config webpack.client.config.js",
+        "build:server": "webpack --config webpack.server.config.js",
+        "start": "node build/server/bundle.js",
+        "dev:client": "webpack serve --config webpack.client.config.js",
+        "dev:server": "nodemon --watch client --watch server --exec 'run-s clear:server build:server start'",
+        "dev": "run-p dev:client dev:server",
+        "build": "run-s clear build:*"
+    },
+    "author": "Suhan Wijaya",
+    "license": "ISC",
+    "dependencies": {
+        "core-js": "^3.8.2",
+        "express": "^4.17.1",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "regenerator-runtime": "^0.13.7",
+        "webpack": "^5.23.0",
+        "webpack-merge": "^5.7.3",
+        "webpack-node-externals": "^2.5.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/node": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-react": "^7.12.10",
+        "@loadable/babel-plugin": "^5.13.2",
+        "@loadable/webpack-plugin": "^5.14.2",
+        "babel-loader": "^8.2.2",
+        "babel-plugin-css-modules-transform": "^1.6.2",
+        "css-loader": "^5.0.1",
+        "less": "^4.0.0",
+        "less-loader": "^7.2.1",
+        "mini-css-extract-plugin": "^1.3.3",
+        "nodemon": "^2.0.7",
+        "npm-run-all": "^4.1.5",
+        "rimraf": "^3.0.2",
+        "webpack-cli": "^4.3.1",
+        "webpack-dev-server": "^3.11.1"
+    },
+    "prettier": {
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true
+    }
 }
