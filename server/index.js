@@ -1,4 +1,4 @@
-// ./server/index.js
+// ./server/index.js 
 
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
