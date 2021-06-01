@@ -1,15 +1,17 @@
+# ./cloudbuild.yaml
+
 steps:
-    - name: node:12
+    - name: node:12 # [A]
       entrypoint: npm
       args: ['install']
-    - name: node:12
+    - name: node:12 # [B]
       entrypoint: npm
       args: ['run', 'build']
       env:
           - 'NODE_ENV=production'
-    # - name: gcr.io/cloud-builders/gsutil
-    #   args: ['-m', 'rsync', '-r', '-c', '-d', './build', 'gs://gcp-host/build']
-    - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    - name: gcr.io/cloud-builders/gsutil # [C]
+      args: ['-m', 'rsync', '-r', '-c', '-d', './build', 'gs://react-ssr/build']
+    - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk' # [D]
       entrypoint: 'bash'
       args: ['-c', 'gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy']
       timeout: '1600s'

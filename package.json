@@ -13,6 +13,7 @@
         "start:client": "serve build/client",
         "start:server": "node build/server/bundle.js",
         "start:local": "run-p start:client start:server",
+		"start": "node build/server/bundle.js",
         "dev:client": "webpack serve --config webpack.client.config.js",
         "dev:server": "nodemon --watch client --watch server --exec 'run-s clear:server build:server start'",
         "dev": "run-p dev:client dev:server"

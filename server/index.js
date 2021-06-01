@@ -6,8 +6,8 @@ import express from 'express'
 import App from '../client/components/App'
 
 const app = express()
-const port = 3000
-const cdnHost = `http://localhost:5000`; // [D]
+const port = process.env.NODE_ENV === 'production' ? process.env.PORT : 3000; 
+const cdnHost = process.env.NODE_ENV === 'production' ? `https://storage.googleapis.com/react-ssr/build/client` : `http://localhost:5000`; // [D]
 
 app.get('/', (req, res) => {
     const jsx = ReactDOMServer.renderToString(<App />) // [A]

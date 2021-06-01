@@ -1,4 +1,6 @@
-runtime: nodejs12
+# ./app.yaml
+
+runtime: nodejs12 # [A]
 
 env_variables:
-  NODE_ENV: "production"
+  NODE_ENV: "production" # [B]
