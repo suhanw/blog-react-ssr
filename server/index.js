@@ -9,13 +9,10 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-    const jsx = ReactDOMServer.renderToString(
-        // [A]
-        <App />
-    )
+    const jsx = ReactDOMServer.renderToString(<App />)
 
-    const clientBundleScript = `<script src="http://localhost:8080/scripts/bundle.js"></script>` // [B]
-    const clientBundleStyle = `<link rel="stylesheet" href="http://localhost:8080/styles/bundle.css">` // [B]
+    const clientBundleScript = `<script src="http://localhost:5000/scripts/bundle.js"></script>`
+    const clientBundleStyle = `<link rel="stylesheet" href="http://localhost:5000/styles/bundle.css">`
 
     res.send(`
         <!DOCTYPE html>
@@ -24,11 +21,11 @@ app.get('/', (req, res) => {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>My SSR App</title>
-                ${clientBundleStyle} <!-- [B] -->
+                ${clientBundleStyle}
             </head>
             <body>
-                <div id='ssr-app'>${jsx}</div> <!-- [A] -->
-                ${clientBundleScript} <!-- [B] -->
+                <div id='ssr-app'>${jsx}</div>
+                ${clientBundleScript}
             </body>
         </html>
     `)

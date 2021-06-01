@@ -9,10 +9,13 @@
         "build:client": "webpack --config webpack.client.config.js",
         "build:server": "webpack --config webpack.server.config.js",
         "start": "node build/server/bundle.js",
+        "start:client": "serve build/client",
+        "start:local": "run-p start:client start",
         "dev:client": "webpack serve --config webpack.client.config.js",
         "dev:server": "nodemon --watch client --watch server --exec 'run-s clear:server build:server start'",
         "dev": "run-p dev:client dev:server",
-        "build": "run-s clear build:*"
+        "prebuild": "rimraf build",
+        "build": "run-p build:*"
     },
     "author": "Suhan Wijaya",
     "license": "ISC",
@@ -42,6 +45,7 @@
         "nodemon": "^2.0.7",
         "npm-run-all": "^4.1.5",
         "rimraf": "^3.0.2",
+        "serve": "^11.3.2",
         "webpack-cli": "^4.3.1",
         "webpack-dev-server": "^3.11.1"
     },
